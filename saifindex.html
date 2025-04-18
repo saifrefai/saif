@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Civil Defense Checker</title>
+</head>
+<body>
+  <h2>Check Your Eligibility</h2>
+  <label>Name:</label>
+  <input type="text" id="name"><br><br>
+
+  <label>Age:</label>
+  <input type="number" id="age"><br><br>
+
+  <label>Gender (male/female):</label>
+  <input type="text" id="gender"><br><br>
+
+  <button onclick="checkEligibility()">Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkEligibility() {
+      let name = document.getElementById('name').value;
+      let age = parseInt(document.getElementById('age').value);
+      let gender = document.getElementById('gender').value.toLowerCase();
+
+      let result = "";
+
+      if (age <= 18 && gender === "male") {
+        result = "You can join the civil defense as a firefighter.";
+      } else if (age <= 18 && gender === "female") {
+        result = "You can join the civil defense as a paramedic.";
+      } else if (age > 18 && gender === "male") {
+        result = "You're still a boy, go and study :)";
+      } else if (age > 18 && gender === "female") {
+        result = "You're still a girl, go and study :)";
+      } else {
+        result = "Please enter valid info.";
+      }
+
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+</html>
